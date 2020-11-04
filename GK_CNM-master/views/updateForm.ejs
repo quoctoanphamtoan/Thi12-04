@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Form</title>
+  </head>
+  <body>
+    <div>
+      <form method="POST" action="/update">
+        <input
+          type="text"
+          placeholder="Nhap Ma SV"
+          name="masv"
+          value="<%=studentOld.maSV%>"
+        />
+        <input
+          type="text"
+          placeholder="Nhap Ten SV"
+          name="tensv"
+          value="<%=studentOld.tenSV%>"
+        />
+        <input
+          type="text"
+          placeholder="Nhap Ngay Sinh"
+          name="ns"
+          value="<%=studentOld.ngaySinh%>"
+        />
+        <input type="file" placeholder="Anh Dai Dien" name="anh" />
+        <input type="hidden" name="id" value="<%=studentOld.idSV %>" />
+        <input type="submit" value="Cap Nhat" />
+      </form>
+    </div>
+  </body>
+</html>

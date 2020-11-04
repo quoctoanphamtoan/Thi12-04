@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinh Vien</title>
+  </head>
+  <body>
+    <div>
+      <form method="POST" action="/addstudent" enctype="multipart/form-data">
+        <input type="text" placeholder="Nhap Ma SV" name="masv" />
+        <input type="text" placeholder="Nhap Ten SV" name="tensv" />
+        <input type="text" placeholder="Nhap Ngay Sinh" name="ns" />
+        <input type="file" placeholder="Anh Dai Dien" name="anh" />
+        <input type="submit" value="Them" />
+      </form>
+
+      <div>
+        <h1 style="text-align: center">Danh Sach Sinh Vien</h1>
+        <table border="1" style="margin-left: 30%">
+          <tr>
+            <th>ID</th>
+            <th>Ma Sinh Vien</th>
+            <th>Ten Sinh Vien</th>
+            <th>Ngay Sinh Sinh Vien</th>
+            <th>Anh Dai Dien Sinh Vien</th>
+            <th>Hanh Dong</th>
+          </tr>
+          <% for(let i=0; i < dataSV.length; i++) { %>
+          <tr>
+            <td><%=dataSV[i].id%></td>
+            <td><%=dataSV[i].maSV%></td>
+            <td><%=dataSV[i].tenSV%></td>
+            <td><%=dataSV[i].ngaySinh%></td>
+            <td><img src="<%=dataSV[i].avatar%>" width="150px" height="150px" /></td>
+            <td>
+              <form action="/delete" method="POST">
+                <input type="hidden" name="idSV" value="<%=dataSV[i].id %>" />
+                <button type="submit">Xóa</button>
+              </form>
+              <form action="/update" method="POST">
+                <input type="hidden" name="idSV" value="<%=dataSV[i].id %>" />
+                <input type="hidden" name="maSV" value="<%=dataSV[i].maSV %>" />
+                <input
+                  type="hidden"
+                  name="tenSV"
+                  value="<%=dataSV[i].tenSV %>"
+                />
+                <input
+                  type="hidden"
+                  name="ngaySinh"
+                  value="<%=dataSV[i].ngaySinh %>"
+                />
+                <button>Sửa</button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
